@@ -1,0 +1,132 @@
+<!DOCTYPE>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Profitez des réservations de vélos dans la ville de lyon pour vous permettre de visiter notre ville"
+    />
+    <meta property="og:image" content="img/logo.png" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="css/style.css" />-->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="icon" href="img/favico.ico">
+    <title>Vélib'Lyon</title>
+</head>
+
+<body>
+    <header>
+        <div id="titre">
+            <img src="img/logo.png" width="40px" height="40px">
+            <h1>Velib'Lyon</h1>
+        </div>
+        <div id="icones">
+            <div id="proceder">
+                <h2>Comment procéder</h2>
+                <div id="fleche-gauche">
+                    <i class="fas fa-angle-left" id="left"></i>
+                </div>
+                <div id="fleche-droite">
+                    <i class="fas fa-angle-right" id="right"></i>
+                </div>
+                <i class="fas fa-stop" id="stop"></i>
+                <i class="fas fa-play" id="start"></i>
+            </div>
+        </div>
+        <div id="slider">
+            <div class="slide">
+                <img src="img/lyon/11.jpg" width="1600" alt="Lyon">
+                <div class="utilisation">
+                    <h3>Etape 1</h3>
+                    <p>Séléctionnez votre station en cliquant sur l'icône de votre choix</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="img/lyon/22.jpg" width="1600" alt="Lyon">
+                <div class="utilisation">
+                    <h3>Etape 2</h3>
+                    <p>Vérifiez dans l'onglet de détails de la station afin de savoir si la station est ouverte et possède des vélos disponibles</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="img/lyon/33.jpg" width="1600" alt="Lyon">
+                <div class="utilisation">
+                    <h3>Etape 3</h3>
+                    <p>Inscrivez votre nom et prénom et cliquez sur le bouton réserver</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="img/lyon/44.jpg" width="1600" alt="Lyon">
+                <div class="utilisation">
+                    <h3>Etape 4</h3>
+                    <p>Inscrivez ensuite votre signature dans le cadre après avoir rempli votre nom et prénom. La réservation compte pour une durée de 20 minutes
+                    </p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="img/lyon/55.jpg" width="1600" alt="Lyon">
+                <div class="utilisation">
+                    <h3>Etape 5</h3>
+                    <p>Une fois la réservation faite, rendez vous sur place. Bon voyage!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div id="map"></div>
+        <div id="info-station">
+            <h2>Détails de la station</h2>
+            <div class="alignement cacher" id="information-station">
+                <p id="nom-adresse"></p>
+                <ul id="info-adresse">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div id="canvas" class="cacher">
+                <canvas id="signature"></canvas>
+                <canvas id="blank" class="cacher"></canvas>
+                <div id="bouton-canvas">
+                    <button id="boutonValider" class="bouton">VALIDER</button>
+                    <button id="boutonEffacer" class="bouton">EFFACER</button>
+                </div>
+            </div>
+            <form class="cacher">
+                <p>Nom:</p>
+                <input type="text" name="nom" id="nom" required>
+                <p>Prénom:</p>
+                <input type="text" name="prenom" id="prenom" required>
+                <br>
+                <input type="submit" value="RESERVER" id="bouton-reservation" class="bouton">
+            </form>
+            <div id="info-station-ferme" class="cacher">Station fermée, veuillez choisir une autre station</div>
+            <div id="indication">
+                <h3>Veulliez séléctioner une station pour obtenir ses informations</h3>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div id="reservation">
+            <div id="info-reserve"></div>
+            <div id="timer">
+                <span id="timer1"></span>
+                <span id="timer2"></span>
+            </div>
+            <button id="annuler-reserve" class="bouton">ANNULER</button>
+        </div>
+        <div id="annulation-reservation" class="cacher">Réservation annulée</div>
+        <div id="non-reserve">Veuillez choisir une station et réserver</div>
+    </footer>
+    <script src="js/ajax.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/markerclusterer.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/sessionstorage.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Ws89HLX7rEK8YYEsVX4AsjaH-hEUdPk&callback=Carte.initMap"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+// objet du slider
+const Diapo = {
+  slide: document.getElementsByClassName("slide"), // on selectionne notre élément du DOM
+  index: -1, // attribution de notre propriété qui permettra le défilement des différentes images
+
+
+  // méthode permettant le bon fonctionnement du slider
+  slider: function () {
+
+    // ajout +1 à l'index
+    Diapo.index++;
+
+    // si l'index est égal à la taille de l'ensemble de nos éléménts
+    if (Diapo.index === Diapo.slide.length) {
+
+      // l'index vaut alors 0
+      Diapo.index = 0;
+    }
+
+    // integration d'une boucle for
+    for (i = 0; i < Diapo.slide.length; i++) {
+
+      // si l'index vaut la variable i
+      if (Diapo.index === i) {
+
+        // l'élément du DOM portant la valeur de i sera affiché
+        Diapo.slide[i].style.display = "flex";
+      } else { // en cas contraire les autres éléments seront cachés
+        Diapo.slide[i].style.display = "none";
+      }
+    }
+
+  },
+
+
+  // méthode permettant d'afficher le prochain élément du dom
+  droite: function () {
+
+    this.slide[this.index].style.display = "none";
+
+    if (this.index === 4) {
+
+      this.index = 0;
+
+      this.slide[this.index].style.display = "flex";
+
+    } else {
+
+      this.index++;
+
+      this.slide[this.index].style.display = "flex";
+    }
+  },
+
+
+  // méthode permettant d'afficher l'élément du dom précédent
+  gauche: function () {
+
+    this.slide[this.index].style.display = "none";
+
+    if (this.index === 0) {
+
+      this.index = 4;
+
+      this.slide[this.index].style.display = "flex";
+
+    } else {
+
+      this.index--;
+
+      this.slide[this.index].style.display = "flex";
+    }
+  },
+
+  // empêche le défilement horinztonal de la page lors de l'appui sur les flèches direcctionnelles gauche et droite
+  annulationScrollingHorizontal: function (e) {
+    if ([37, 39].indexOf(e.keyCode) > -1) {
+      e.preventDefault();
+    };
+  }
+};
+
+
+// appel de notre méthode slider à l'affichage de notre page web pour l'initialisation
+Diapo.slider();
+
+// appel toutes les 5 secondes de la méthode slider
+var intervalId = setInterval(Diapo.slider, 5000);
+
+// event permettant le défilement des différents éléments du slider avec les flèches du clavier
+document.addEventListener("keydown", function (e) {
+
+  // si la touche du clavier "flèche directionnelle gauche" est appuyée
+  if (e.keyCode === 37) {
+
+    // appel de la méthode gauche
+    Diapo.gauche();
+
+    // si la touche du clavier "directionnelle droite" est appuyée
+  } else if (e.keyCode === 39) {
+
+    // appel de la méthode droite
+    Diapo.droite();
+  }
+});
+
+// évite le scrolling horizontal avec le clavier
+window.addEventListener("keydown", function (e) {
+  Diapo.annulationScrollingHorizontal(e);
+});
+
+
+// lors d'un clic sur la flèche de gauche
+document.getElementById("left").addEventListener("click", function () {
+  Diapo.gauche();
+});
+
+
+// lors d'un clic sur la flèche de droite
+document.getElementById("right").addEventListener("click", function () {
+  Diapo.droite();
+})
+
+
+// lors d'un clic sur le bouton stop, arrêt du slider
+document.getElementById("stop").addEventListener("click", function () {
+  clearInterval(intervalId);
+});
+
+
+// lors d'un clic sur le bouton start, reprise du slider
+document.getElementById("start").addEventListener("click", function () {
+  intervalId = setInterval(Diapo.slider, 5000);
+})
