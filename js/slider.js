@@ -1,6 +1,9 @@
 // objet du slider
 const Diapo = {
   slide: document.getElementsByClassName("slide"), // on selectionne notre élément du DOM
+  info: document.getElementsByClassName("utilisation"),
+  pause: document.getElementById("stop"),
+  start: document.getElementById("start"),
   index: -1, // attribution de notre propriété qui permettra le défilement des différentes images
 
 
@@ -25,8 +28,10 @@ const Diapo = {
 
         // l'élément du DOM portant la valeur de i sera affiché
         Diapo.slide[i].style.display = "flex";
+        Diapo.info[i].style.display = "flex";
       } else { // en cas contraire les autres éléments seront cachés
         Diapo.slide[i].style.display = "none";
+        Diapo.info[i].style.display = "none";
       }
     }
 
@@ -37,18 +42,22 @@ const Diapo = {
   droite: function () {
 
     this.slide[this.index].style.display = "none";
+    this.info[this.index].style.display = "none";
 
     if (this.index === 4) {
 
       this.index = 0;
 
       this.slide[this.index].style.display = "flex";
+      this.info[this.index].style.display = "flex";
 
     } else {
 
       this.index++;
 
       this.slide[this.index].style.display = "flex";
+      this.info[this.index].style.display = "flex";
+
     }
   },
 
@@ -57,18 +66,21 @@ const Diapo = {
   gauche: function () {
 
     this.slide[this.index].style.display = "none";
+    this.info[this.index].style.display = "none";
 
     if (this.index === 0) {
 
       this.index = 4;
 
       this.slide[this.index].style.display = "flex";
+      this.info[this.index].style.display = "flex";
 
     } else {
 
       this.index--;
 
       this.slide[this.index].style.display = "flex";
+      this.info[this.index].style.display = "flex";
     }
   },
 
@@ -109,26 +121,33 @@ window.addEventListener("keydown", function (e) {
   Diapo.annulationScrollingHorizontal(e);
 });
 
-
 // lors d'un clic sur la flèche de gauche
-document.getElementById("left").addEventListener("click", function () {
+document.getElementById("fleche-gauche").addEventListener("click", function () {
   Diapo.gauche();
+  clearInterval(intervalId);
+  console.log(intervalId);
+  Diapo.pause.style.color = "#F64E4E";
 });
 
-
 // lors d'un clic sur la flèche de droite
-document.getElementById("right").addEventListener("click", function () {
+document.getElementById("fleche-droite").addEventListener("click", function () {
   Diapo.droite();
+  clearInterval(intervalId);
+  Diapo.pause.style.color = "#F64E4E";
 })
-
 
 // lors d'un clic sur le bouton stop, arrêt du slider
 document.getElementById("stop").addEventListener("click", function () {
   clearInterval(intervalId);
-});
+  Diapo.pause.style.color = "#F64E4E";
 
+});
 
 // lors d'un clic sur le bouton start, reprise du slider
 document.getElementById("start").addEventListener("click", function () {
+  clearInterval(intervalId);
   intervalId = setInterval(Diapo.slider, 5000);
+  Diapo.start.style.color = "#F64E4E"
+  setTimeout(function(){ Diapo.start.style.color = "white"; }, 200);
+  Diapo.pause.style.color = "white";
 })

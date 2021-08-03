@@ -40,60 +40,69 @@
             <div class="solg3">DEMANDE FACILE</div>
             <div class="solg4">069 95 15 23</div>
         </div>
-        <div id="icones">
+        <div id="instruction">
             <div id="proceder">
-                <h2>Comment procéder</h2>
-                <div id="fleche-gauche">
-                    <i class="fas fa-angle-left" id="left"></i>
+                <!--<h2>Comment procéder</h2>-->
+                <div class="info-utlisation">
+                    <div class="utilisation">
+                        <h3>ETAPE 1</h3>
+                        <p>Séléctionnez votre station en cliquant sur l'icône de votre choix</p>
+                    </div>
+                    <div class="utilisation">
+                        <h3>ETAPE 2</h3>
+                        <p>Vérifiez dans l'onglet de détails de la station afin de savoir si la station est ouverte et possède des vélos disponibles</p>
+                    </div>
+                    <div class="utilisation">
+                        <h3>ETAPE 3</h3>
+                        <p>Inscrivez votre nom et prénom et cliquez sur le bouton réserver</p>
+                    </div>
+                    <div class="utilisation">
+                        <h3>ETAPE 4</h3>
+                        <p>Inscrivez ensuite votre signature dans le cadre après avoir rempli votre nom et prénom. La réservation compte pour une durée de 20 minutes
+                        </p>
+                    </div>
+                    <div class="utilisation">
+                        <h3>ETAPE 5</h3>
+                        <p>Une fois la réservation faite, rendez vous sur place. Bon voyage!</p>
+                    </div>
                 </div>
-                <div id="fleche-droite">
-                    <i class="fas fa-angle-right" id="right"></i>
+                <div id="fleche-gauche" class="fleche">
+                    <i class="fas fa-angle-double-left"></i>
                 </div>
-                <i class="fas fa-stop" id="stop"></i>
-                <i class="fas fa-play" id="start"></i>
+                <div id="fleche-droite" class="fleche">
+                    <i class="fas fa-angle-double-right"></i>
+                </div>
+                <i class="fas fa-pause-circle"id="stop"></i>
+                <!--<i class="fas fa-pause" id="stop"></i>-->
+                <i class="fas fa-play-circle" id="start"></i>
             </div>
-        </div>
-        <div id="slider">
-            <div class="slide">
-                <img src="img/lyon/11.jpg" width="1600" alt="Lyon">
-                <div class="utilisation">
-                    <h3>Etape 1</h3>
-                    <p>Séléctionnez votre station en cliquant sur l'icône de votre choix</p>
+            <div id="slider">
+                <div class="slide">
+                    <img src="img/lyon/lyon1.jpg" width="1600" alt="Lyon">
                 </div>
-            </div>
-            <div class="slide">
-                <img src="img/lyon/22.jpg" width="1600" alt="Lyon">
-                <div class="utilisation">
-                    <h3>Etape 2</h3>
-                    <p>Vérifiez dans l'onglet de détails de la station afin de savoir si la station est ouverte et possède des vélos disponibles</p>
+                <div class="slide">
+                    <img src="img/lyon/lyon2.jpg" width="1600" alt="Lyon">
+
                 </div>
-            </div>
-            <div class="slide">
-                <img src="img/lyon/33.jpg" width="1600" alt="Lyon">
-                <div class="utilisation">
-                    <h3>Etape 3</h3>
-                    <p>Inscrivez votre nom et prénom et cliquez sur le bouton réserver</p>
+                <div class="slide">
+                    <img src="img/lyon/lyon3.jpg" width="1600" alt="Lyon">
+
                 </div>
-            </div>
-            <div class="slide">
-                <img src="img/lyon/44.jpg" width="1600" alt="Lyon">
-                <div class="utilisation">
-                    <h3>Etape 4</h3>
-                    <p>Inscrivez ensuite votre signature dans le cadre après avoir rempli votre nom et prénom. La réservation compte pour une durée de 20 minutes
-                    </p>
+                <div class="slide">
+                    <img src="img/lyon/lyon4.jpg" width="1600" alt="Lyon">
+
                 </div>
-            </div>
-            <div class="slide">
-                <img src="img/lyon/55.jpg" width="1600" alt="Lyon">
-                <div class="utilisation">
-                    <h3>Etape 5</h3>
-                    <p>Une fois la réservation faite, rendez vous sur place. Bon voyage!</p>
+                <div class="slide">
+                    <img src="img/lyon/lyon5.jpg" width="1600" alt="Lyon">
+
                 </div>
             </div>
         </div>
     </header>
     <section>
-        <div id="map"></div>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
         <div id="info-station">
             <h2>Détails de la station</h2>
             <div class="alignement cacher" id="information-station">
@@ -144,7 +153,7 @@
     <script src="js/markerclusterer.js"></script>
     <script src="js/canvas.js"></script>
     <script src="js/sessionstorage.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Ws89HLX7rEK8YYEsVX4AsjaH-hEUdPk&callback=Carte.initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS91RiAbj5CtmAAG83fy4GrsZAA-qc4ow&region=FR&language=fr&callback=Carte.initMap"></script>
 </body>
 
 </html>
