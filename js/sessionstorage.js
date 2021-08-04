@@ -52,7 +52,7 @@ var Reservation = {
         // affichage dans le footer
         this.reservation.style.display = "flex";
         this.nonReserve.style.display = "none";
-        this.infoReserve.textContent = "Vélo réservé à la station " + sessionStorage.station + " par " + sessionStorage.prenom + " " + sessionStorage.nom;
+        this.infoReserve.innerHTML = "Vélo réservé à la station " + sessionStorage.station.bold() + " par " + sessionStorage.prenom.bold() + " " + sessionStorage.nom.bold();
     },
 
     // attribution d'une règle pour le décompte
@@ -173,7 +173,7 @@ var Reservation = {
         // effectue l'affichage de la réservation
         Reservation.reservation.style.display = "flex";
         Reservation.nonReserve.style.display = "none";
-        Reservation.infoReserve.textContent = "Vélo réservé à la station " + sessionStorage.station + " par " + sessionStorage.prenom + " " + sessionStorage.nom;
+        Reservation.infoReserve.innerHTML = "Vélo réservé à la station " + sessionStorage.station.bold() + " par " + sessionStorage.prenom.bold() + " " + sessionStorage.nom.bold();
 
         // attribue les données sessionStorage dans minutesElt et secondesElt pour le fonctionnement du timer
         Reservation.attributionCompteurSessionStorageDeux();
@@ -235,8 +235,8 @@ document.getElementById("boutonValider").addEventListener("click", function (e) 
 
         // permet de réinitialiser les champs nom et prénom après réservation
         setTimeout(function () {
-            document.querySelector("form").children[1].value = "";
-            document.querySelector("form").children[3].value = "";
+            document.getElementById("nom").value = "";
+            document.getElementById("prenom").value = "";
         }, 1000);
 
         // réinitialise le dessin dans le canvas

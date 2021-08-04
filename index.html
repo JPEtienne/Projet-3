@@ -103,49 +103,59 @@
         <div class="map-container">
             <div id="map"></div>
         </div>
-        <div id="info-station">
-            <h2>Détails de la station</h2>
-            <div class="alignement cacher" id="information-station">
-                <p id="nom-adresse"></p>
-                <ul id="info-adresse">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-            <div id="canvas" class="cacher">
-                <canvas id="signature"></canvas>
-                <canvas id="blank" class="cacher"></canvas>
-                <div id="bouton-canvas">
-                    <button id="boutonValider" class="bouton">VALIDER</button>
-                    <button id="boutonEffacer" class="bouton">EFFACER</button>
+        <div class="container-reservation">
+            <div class="reservation">
+                <div id="reservation">
+                    <div id="info-reserve"></div>
+                    <div id="timer">
+                        <span id="timer1"></span>
+                        <span id="timer2"></span>
+                    </div>
+                    <button id="annuler-reserve" class="bouton">ANNULER</button>
                 </div>
+                <div id="annulation-reservation" class="cacher">Réservation annulée</div>
+                <div id="non-reserve">Veuillez choisir une station et réserver</div>
             </div>
-            <form class="cacher">
-                <p>Nom:</p>
-                <input type="text" name="nom" id="nom" required>
-                <p>Prénom:</p>
-                <input type="text" name="prenom" id="prenom" required>
-                <br>
-                <input type="submit" value="RESERVER" id="bouton-reservation" class="bouton">
-            </form>
-            <div id="info-station-ferme" class="cacher">Station fermée, veuillez choisir une autre station</div>
-            <div id="indication">
-                <h3>Veulliez séléctioner une station pour obtenir ses informations</h3>
+            <div id="info-station">
+                <div>
+                    <h2>Détails de la station</h2>
+                    <div class="alignement cacher" id="information-station">
+                        <p id="nom-adresse"></p>
+                        <ul id="info-adresse">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div id="info-station-ferme" class="cacher">Station fermée, veuillez choisir une autre station</div>
+                    <div id="indication">
+                        <h3>Veulliez séléctioner une station pour obtenir ses informations</h3>
+                    </div>
+                </div>
+                <div id="canvas" class="cacher">
+                    <canvas id="signature"></canvas>
+                    <canvas id="blank" class="cacher"></canvas>
+                    <div id="bouton-canvas">
+                        <button id="boutonValider" class="bouton">VALIDER</button>
+                        <button id="boutonEffacer" class="bouton">EFFACER</button>
+                    </div>
+                </div>
+                <form class="cacher">
+                    <div>
+                        <label for="nom">NOM</label><br>
+                        <input type="text" name="nom" id="nom" class="reset" required>
+                    </div>
+                    <div>
+                        <label for="prenom">PRENOM</label><br>
+                        <input type="text" name="prenom" id="prenom" class="reset" required>
+                    </div>
+                    <br>
+                    <input type="submit" value="RESERVER" id="bouton-reservation" class="bouton">
+                </form>
             </div>
         </div>
     </section>
     <footer>
-        <div id="reservation">
-            <div id="info-reserve"></div>
-            <div id="timer">
-                <span id="timer1"></span>
-                <span id="timer2"></span>
-            </div>
-            <button id="annuler-reserve" class="bouton">ANNULER</button>
-        </div>
-        <div id="annulation-reservation" class="cacher">Réservation annulée</div>
-        <div id="non-reserve">Veuillez choisir une station et réserver</div>
     </footer>
     <script src="js/ajax.js"></script>
     <script src="js/slider.js"></script>
