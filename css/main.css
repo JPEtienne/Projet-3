@@ -296,7 +296,6 @@ html {
     flex-basis: 60%;
     margin-left: 80px;
 }
-
 #info-station form div:nth-child(2) {
     margin-bottom: -26px;
     margin-top: -10px;
@@ -318,20 +317,21 @@ html {
     flex-direction: column;
     align-items: flex-start;
     align-self: flex-start;
-    margin-right: 110px;
+    margin-right: 100px;
     height: 100%;
+    max-width: 300px;
+    width: 100%;
     justify-content: flex-start;
     justify-items: flex-start;
 }
 #canvas canvas {
     align-self: flex-start;
-    height: 70%;
-    width: 280px;
     background: white;
     margin-bottom: 5px;
     -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.26);
     box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.26);
 }
+
 /*--------------------------------------*/
 
 /* FOOTER */
@@ -458,14 +458,113 @@ footer li:nth-child(5) {
     /* SECTION / STATION RESERVATION */
     .container-reservation {
         flex-direction: column;
-        min-height: 260px;
+        min-height: 400px;
+        max-width: 1110px;
+        width: 100%;
         height: auto;
+        background: #F6F6F6;
     }
     .reservation {
         order: 1;
+        max-width: 1110px;
+        min-height: 200px;
+        height: 100%;
+        box-shadow: none;
+        background: #890000;
+    }
+    .reservation * {
+        color: white;
+    }
+    .reservation button {
+        background: white;
+        color: #890000;
+        border: #890000 1px solid;
+    }
+    #reservation {
+        width: 800px;
+    }
+    #info-reserve {
+        width: 100%;
     }
     #info-station {
+        justify-content: flex-start;
         flex-direction: column;
+        max-width: 1050px;
+        width: 100%;
+        min-height: 550px;
+        height: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.14);
+        box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.14);
     }
+    #info-station > div:first-child {
+        align-self: center;
+        padding-top: 30px;
+        max-width: 1050px;
+        text-align: center;
+        background: white;
+    }
+    #info-station form {
+        margin: 0;
+        max-width: 1050px;
+        width: 100%;
+        align-items: center;
+        margin-top: 0px;
+    }
+    #info-station form > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        width: 100%;
+    }
+    #info-station form div:nth-child(2) {
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    #info-station form label {
+        margin-bottom: -13px;
+        margin-top: 40px;
+        font-weight: bold;
+        align-self: flex-start;
+    }
+    #info-station form input {
+        margin-bottom: 0px;
+        border: #242424 1px solid;
+        height: 23px;
+        max-width: 400px;
+        width: 100%;
+    }
+    #info-station form input[type=text] {
+        height: 30px;
+        font-size: 18px;
+    }
+    #info-station form input[type=submit] {
+        margin-top: 30px;
+    }
+    #info-station #canvas {
+        align-self: center;
+        margin-right: 0;
+        margin-top: 20px;
+        max-width: 500px;
+        width: 100%;
+    }
+    #info-station #canvas canvas {
+    align-self: center;
+    }
+    #info-station #bouton-canvas {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 7px;
+    }
+    #info-station #bouton-canvas button {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 810px) {
+
 }
 

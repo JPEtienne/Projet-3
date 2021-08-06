@@ -1,9 +1,24 @@
 // objet canvas
 var Canvas = {
+    mqTablet: window.matchMedia("(max-width: 1110px)"),
+    mqPhone: window.matchMedia("(max-width: 810px)"),
     canvas: document.getElementById("signature"),
     mouse: false, // affiche le statut de la souris
     ctx: null, // attribut le contexte de l'utilisation du canvas
-    
+
+    // Vérifie la résolution de l'écran et adapte la taille du canvas
+    canvasSize: function () {
+        if (this.mqPhone.matches) {
+            this.canvas.width = 500
+            this.canvas.height = 300
+        } else if (this.mqTablet.matches) {
+            this.canvas.width = 500
+            this.canvas.height = 300
+        } else {
+            this.canvas.width = 300
+            this.canvas.height = 150
+        }
+    },
 
     // méthode récupérant les coordonnées du pointage
     getMousePos: function (canvas, event) {
@@ -115,6 +130,8 @@ var Canvas = {
     }
 };
 
+// Vérifie au chargement de la page la résolution en largeur de l'écran
+Canvas.canvasSize();
 
 // event qui attribut le statut de la souris lors de l'appui
 Canvas.canvas.addEventListener("mousedown", function () {
@@ -139,7 +156,6 @@ Canvas.canvas.addEventListener("mousemove", function (e) {
 Canvas.canvas.addEventListener("touchstart", Canvas.convertTouchEvent);
 Canvas.canvas.addEventListener("touchmove", Canvas.convertTouchEvent);
 Canvas.canvas.addEventListener("touchend", Canvas.convertTouchEvent);
-
 
 
 // affiche le canvas après la validation du formulaire
@@ -171,3 +187,6 @@ document.querySelector("form").addEventListener("submit", function(e) {
 document.getElementById("boutonEffacer").addEventListener("click", function() {
     Canvas.clearCanvas();
 });
+
+
+
