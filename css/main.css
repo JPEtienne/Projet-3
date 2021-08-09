@@ -24,6 +24,14 @@ html {
     padding: 0 20px;
     height: 80px;
 }
+.info div:nth-child(4) {
+
+}
+.info div i {
+    color: white;
+    font-size: 17px;
+    margin-right: 7px;
+}
 #titre, .nav ul {
     display: flex;
 }
@@ -562,9 +570,154 @@ footer li:nth-child(5) {
     #info-station #bouton-canvas button {
         margin-left: 20px;
     }
+    /*--------------------------------------*/
 }
 
 @media (max-width: 810px) {
+    /* HEADER / NAV */
+    .nav {
+        position: absolute;
+        top: 0%;
+        right: -2000px;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        width: 300px;
+        height: 200%;
+        z-index: 3;
+        transition: 300ms;
+    }
+    html::before {
+        content: '';
+        background: black;
+        width: 100vw;
+        height: 200%;
+        position: absolute;
+        z-index: 2;
+        opacity: 0.25;
+        display: none;
+    }
+    .nav-bar div:nth-child(2) {
+        display: block;
+        margin: 10px;
+        font-size: 30px;
+    }
+    .nav div:first-child {
+        display: block;
+        font-size: 25px;
+        padding: 20px 0 20px 25px;
+        margin-bottom: 0px;
+    }
+    .nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav ul li {
+        padding: 30px 10px;
+        font-size: 20px;
+    }
+    .info {
+        justify-content: flex-end;
+    }
+    .info div:nth-child(-n+3) {
+        display: none;
+    }
+    .info div:nth-child(4) {
+        margin-right: 10px;
+    }
+    /*--------------------------------------*/
+    /* HEADER / NAV */
+
+    /* HEADER / INSTRUCTION - SLIDER */
+    body {
+        background: #F6F6F6;
+    }
+    #proceder {
+        background: white;
+        height: 100%;
+        -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.14);
+        box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.14);
+    }
+    .utilisation * {
+        color: #242424;
+    }
+    .utilisation h3 {
+        font-size: 40px;
+        top: 65px;
+    }
+    .utilisation p {
+        font-size: 28px;
+    }
+    .fleche {
+        top: auto;
+        bottom: 100%;
+        transform: none;
+    }
+    .fleche i {
+        font-size: 40px;
+    }
+    #fleche-gauche {
+        bottom: 0%;
+        left: 0%;
+    }
+    #fleche-droite {
+        bottom: 0%;
+        left: auto;
+        right: 0%;
+    }
+    #stop, #start {
+        color: #242424;
+        top: auto;
+        bottom: 0%;
+        font-size: 60px;
+        transform: translateX(-50%);
+    }
+    #stop:hover, #start:hover {
+        top: auto;
+    }
+    #stop {
+        left: 45%;
+    }
+    #start {
+        left: 55%;
+    }
+    #slider {
+        display: none;
+    }
+    /*--------------------------------------*/
+
+    /* HEADER / INSTRUCTION - SLIDER */
+    footer ul {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    footer li:nth-child(1) {
+        order: 1;
+        margin-bottom: 30px;
+        flex-basis: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    footer li:nth-child(1) img {
+
+    }
+    footer li:nth-child(2) {
+        order: 2;
+    }
+    footer li:nth-child(3) {
+        order: 3
+    }
+    footer li:nth-child(4) {
+        order: 4;
+    }
+    footer li:nth-child(5) {
+        order: 5;
+    }
+    /*--------------------------------------*/
+}
+
+@media (max-width: 425px) {
 
 }
 

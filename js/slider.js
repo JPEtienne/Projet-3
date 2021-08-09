@@ -1,11 +1,11 @@
 // objet du slider
 const Diapo = {
+  mqPhone: window.matchMedia("(max-width: 810px)"),
   slide: document.getElementsByClassName("slide"), // on selectionne notre élément du DOM
   info: document.getElementsByClassName("utilisation"),
   pause: document.getElementById("stop"),
   start: document.getElementById("start"),
   index: -1, // attribution de notre propriété qui permettra le défilement des différentes images
-
 
   // méthode permettant le bon fonctionnement du slider
   slider: function () {
@@ -127,6 +127,7 @@ document.getElementById("fleche-gauche").addEventListener("click", function () {
   clearInterval(intervalId);
   console.log(intervalId);
   Diapo.pause.style.color = "#F64E4E";
+
 });
 
 // lors d'un clic sur la flèche de droite
@@ -140,14 +141,18 @@ document.getElementById("fleche-droite").addEventListener("click", function () {
 document.getElementById("stop").addEventListener("click", function () {
   clearInterval(intervalId);
   Diapo.pause.style.color = "#F64E4E";
-
 });
 
 // lors d'un clic sur le bouton start, reprise du slider
 document.getElementById("start").addEventListener("click", function () {
   clearInterval(intervalId);
   intervalId = setInterval(Diapo.slider, 5000);
-  Diapo.start.style.color = "#F64E4E"
-  setTimeout(function(){ Diapo.start.style.color = "white"; }, 200);
-  Diapo.pause.style.color = "white";
+  Diapo.start.style.color = "#F64E4E";
+  if (Diapo.mqPhone.matches) {
+    setTimeout(function(){ Diapo.start.style.color = "#242424"; }, 200);
+    Diapo.pause.style.color = "#242424";
+  } else {
+    setTimeout(function(){ Diapo.start.style.color = "white"; }, 200);
+    Diapo.pause.style.color = "white";
+  }
 })
